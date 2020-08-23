@@ -21,6 +21,7 @@
         <junit.jupiter.version>5.5.2</junit.jupiter.version>
         <jacoco.maven.plugin.version>0.8.5</jacoco.maven.plugin.version>
         <mockito.junit.jupiter.version>2.23.0</mockito.junit.jupiter.version>
+        <hamcrest.version>2.1</hamcrest.version>
         <mainClass>com.karachev.integerdivision.IntegerDivisionApplication</mainClass>
         <main.class.for.manifest>com.karachev.integerdivision.IntegerDivisionApplication</main.class.for.manifest>
     </properties>
@@ -41,7 +42,7 @@
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest</artifactId>
-            <version>2.1</version>
+            <version>${hamcrest.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

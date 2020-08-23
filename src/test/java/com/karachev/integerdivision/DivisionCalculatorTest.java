@@ -37,7 +37,7 @@ class DivisionCalculatorTest {
     private DivisionViewProvider mockedDivisionViewProvider;
 
     @InjectMocks
-    DivisionCalculator mockedDivisionCalculator;
+    private DivisionCalculator divisionCalculator;
 
     @Test
     void CalculateShouldReturnCorrectStringWhenGetValidatorDividendAndDivisor() {
@@ -66,7 +66,7 @@ class DivisionCalculatorTest {
         doNothing().when(mockedValidator).validate(anyInt(), anyInt());
         when(mockedDivisionMathProvider.provideMathCalculation(anyInt(), anyInt())).thenReturn(steps);
         when(mockedDivisionViewProvider.provideView(anyInt(), anyInt(), anyList())).thenReturn(expected);
-        String actual = mockedDivisionCalculator.calculate(78945, 25);
+        String actual = divisionCalculator.calculate(78945, 25);
 
         assertThat(expected, is(actual));
 
@@ -78,7 +78,7 @@ class DivisionCalculatorTest {
     @Test
     void CalculateShouldNotRunsWhenValidatorThrowsException() {
         doThrow(new IllegalArgumentException()).when(mockedValidator).validate(anyInt(), anyInt());
-        assertThrows(IllegalArgumentException.class, () -> mockedValidator.validate(10, 0));
+        assertThrows(IllegalArgumentException.class, () -> divisionCalculator.calculate(10, 0));
         verifyNoMoreInteractions(mockedDivisionMathProvider, mockedDivisionViewProvider);
     }
 }
